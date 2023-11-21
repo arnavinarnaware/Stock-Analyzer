@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analyzer</title>
+</head>
+<body>
+    <h1>Stock Analyzer</h1>
+
+    <form method="post" action="/submit">
+        <label for="api_key">Enter Your Alpha Vantage API Key:</label>
+        <input type="text" id="api_key" name="api_key" required>
+        
+        <label for="symbols">Enter Stock Symbols (comma-separated):</label>
+        <input type="text" id="symbols" name="symbols" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
