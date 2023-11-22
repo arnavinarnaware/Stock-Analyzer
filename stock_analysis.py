@@ -16,7 +16,7 @@ def get_stock_prices(symbol, api_key):
 
     try:
         response = requests.get(base_url, params=params)
-        response.raise_for_status()  # Raise an HTTPError for bad responses
+        response.raise_for_status()  #raise HTTPError
 
         data = response.json()["Time Series (Daily)"]
         df = pd.DataFrame(data).T
@@ -53,10 +53,10 @@ def insert_data_into_mysql(data, symbol):
             cursor.close()
             connection.close()
 
-# Example usage
+#ex
 if __name__ == "__main__":
-    api_key = 'YOUR_API_KEY'  # Replace with your actual Alpha Vantage API key
-    symbols = ['AAPL', 'MSFT', 'GOOGL']  # Add more symbols as needed
+    api_key = 'YOUR_API_KEY'  #use personal API key
+    symbols = ['AAPL', 'MSFT', 'GOOGL'] 
 
     for symbol in symbols:
         stock_prices = get_stock_prices(symbol, api_key)
