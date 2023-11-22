@@ -1,16 +1,14 @@
-# Import the necessary modules
 from flask import Flask, render_template, request, redirect, url_for
 from stock_analysis import get_stock_prices, insert_data_into_mysql
 
-# Create a Flask app
 app = Flask(__name__)
 
-# Define the index route
+# index route
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# Define the submit route
+# submit route
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
@@ -27,6 +25,6 @@ def submit():
 
     return render_template('index.html', error="Error fetching or inserting data. Please try again.")
 
-# Run the app if this script is executed
+# Run app when script is executed
 if __name__ == '__main__':
     app.run(debug=True)
